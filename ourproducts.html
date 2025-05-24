@@ -1,0 +1,1006 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="front.css">
+<style>
+
+
+
+/* Slide-up animation for cards */
+.card {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.5s ease-in-out forwards;
+}
+
+/* Staggered animation delays */
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+.card:nth-child(5) { animation-delay: 1.0s; }
+.card:nth-child(6) { animation-delay: 1.2s; }
+/* Optional: add more if you have more cards */
+.card:nth-child(7) { animation-delay: 1.4s; }
+.card:nth-child(8) { animation-delay: 1.6s; }
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card image hover zoom */
+.card img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay content on hover */
+.hover-content {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.card:hover .hover-content {
+  opacity: 1;
+}
+
+/* Product info below image */
+.product-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px;
+  position: relative;
+  z-index: 1;
+}
+
+.product-name {
+  background-color: #ffc107;
+  color: #fff;
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.product-action {
+  background-color: #001f3f;
+  color: #fff;
+  flex: 0.3;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Nav Pills for product filter */
+.nav-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-pills .nav-link {
+  color: #001f3f;
+  background-color: #ffc107;
+  margin: 5px;
+  border: none;
+}
+
+.nav-pills .nav-link.active {
+  color: #ffc107;
+  background-color: #001f3f;
+}
+</style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-12">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="img/logo.png" alt="Image">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="top-bar-item">
+                                <div class="top-bar-icon">
+                                  <i class="bi bi-envelope-fill email-icon"></i>
+                                </div>
+                                <div class="top-bar-text">
+                                    <h3>Email Us</h3>
+                                    <p> modernengineering2012@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-4">
+                            <div class="top-bar-item">
+                                <div class="top-bar-icon">
+                                  <i class="bi bi-telephone-fill email-icon"></i>
+                                </div>
+                                <div class="top-bar-text">
+                                    <h3>Call Us</h3>
+                                    <p>9894050591 , 9488004568</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="top-bar-item">
+                                <div class="top-bar-icon">
+                                  <i class="bi bi-calendar-date-fill email-icon"></i>
+                                </div>
+                                <div class="top-bar-text">
+                                    <h3>Opening Hour</h3>
+                                    <p>8:00 AM - 8:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      <div class="nav-bar">
+    
+        <div class="container-fluid">
+        
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+          <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav mr-auto">
+                <a href="front.html" class="nav-item nav-link" id="home-link">HOME</a>
+<a href="about.html" class="nav-item nav-link" id="about-link">ABOUT US</a>
+<a href="ourproducts.html" class="nav-item nav-link" id="products-link">OUR PRODUCTS</a>
+<a href="contactus.html" class="nav-item nav-link" id="contact-link">CONTACT US</a>
+
+                
+            </div>
+            <div class="ml-auto">
+                <a class="btn" href="#">Get in Touch</a>
+            </div>
+        </div>
+        </nav>
+        </div>
+        
+        </div>
+        <div class="page-header">
+          <div class="container">
+              <div class="row">
+                  <div class="col-12">
+                      <h2>Our Products</h2>
+                  </div>
+                  <div class="col-12">
+                      <a href="">Home</a>
+                      <a href="">Our Products</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    <div class="container">
+        <p class="text-center" style="color: black; font-weight: bold; font-size:20px;">Our Products</p>
+                  <h1 class="text-center fw-boldder">Bearing Product Selection</h1>
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#all">ALL</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#ballbearing">BALL BEARING</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#rollerbearing">ROLLER BEARING</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" data-toggle="pill" href="#skfoil">SKF OIL SEALS</a>
+            </li>
+        </ul>
+      
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="all" class="container tab-pane active"><br>
+              <div class="container my-5">
+                  
+              
+                  <div class="row g-4 mt-4">
+                      <!-- Ball Bearing -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="Ball bearing.png" class="card-img-top" alt="Ball Bearing">
+                              <div class="hover-content">
+                                  <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Ball Bearing</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+                    
+                    
+                      <!-- Roller Bearing -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="Rolling Bearing.png" class="card-img-top" alt="Roller Bearing">
+                              <div class="hover-content">
+                                  <p>Roller Bearings provide a low-friction solution for heavy loads in machinery.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Roller Bearing</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+              
+                      <!-- Oil Seals -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="oil seals.png" class="card-img-top" alt="Oil Seals">
+                              <div class="hover-content">
+                                  <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Oil Seals</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card">
+                            <img src="Insert Bearing.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="roll/8.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="roll/9.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="roll/11.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="roll/10.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/5.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/4.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/3.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/2.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/1.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/17.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Self-Aligning Ball Bearing.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Thrust Ball Bearings.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="High Temperature Bearing .png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Deep Groove Ball Bearing.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+           
+          </div>
+          <div id="ballbearing" class="container tab-pane fade"><br>
+              <div class="container my-5">
+                 
+              
+                  <div class="row g-4 mt-4">
+                      <!-- Ball Bearing -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="Insert Bearing.png" class="card-img-top" alt="Ball Bearing">
+                              <div class="hover-content">
+                                  <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Ball Bearing</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+              
+                      <!-- Roller Bearing -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="Angular Contact Ball Bearing.png" class="card-img-top" alt="Roller Bearing">
+                              <div class="hover-content">
+                                  <p>Roller Bearings provide a low-friction solution for heavy loads in machinery.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Roller Bearing</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+              
+                      <!-- Oil Seals -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="High Temperature Bearing .png" class="card-img-top" alt="Oil Seals">
+                              <div class="hover-content">
+                                  <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Oil Seals</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card">
+                            <img src="Self-Aligning Ball Bearing.png" class="card-img-top" alt="Oil Seals">
+                            <div class="hover-content">
+                                <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Oil Seals</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Deep Groove Ball Bearing.png" class="card-img-top" alt="Oil Seals">
+                            <div class="hover-content">
+                                <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Oil Seals</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="Thrust Ball Bearings.png" class="card-img-top" alt="Oil Seals">
+                            <div class="hover-content">
+                                <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Oil Seals</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+             
+          </div>
+          <div id="rollerbearing" class="container tab-pane fade"><br>
+            
+              <div class="container my-5">
+              
+                  <div class="row g-4 mt-4">
+                      <!-- Ball Bearing -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="roll/6.png" class="card-img-top" alt="Ball Bearing">
+                              <div class="hover-content">
+                                  <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Ball Bearing</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+              
+                      <!-- Roller Bearing -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="roll/7.png" class="card-img-top" alt="Roller Bearing">
+                              <div class="hover-content">
+                                  <p>Roller Bearings provide a low-friction solution for heavy loads in machinery.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Roller Bearing</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+              
+                      <!-- Oil Seals -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="roll/8.png" class="card-img-top" alt="Oil Seals">
+                              <div class="hover-content">
+                                  <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Oil Seals</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card">
+                            <img src="roll/9.png" class="card-img-top" alt="Oil Seals">
+                            <div class="hover-content">
+                                <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Oil Seals</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="roll/10.png" class="card-img-top" alt="Oil Seals">
+                            <div class="hover-content">
+                                <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Oil Seals</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="roll/11.png" class="card-img-top" alt="Oil Seals">
+                            <div class="hover-content">
+                                <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Oil Seals</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="roll/12.png" class="card-img-top" alt="Oil Seals">
+                            <div class="hover-content">
+                                <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Oil Seals</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+               
+          </div>
+          <div id="skfoil" class="container tab-pane fade"><br>
+              <div class="container my-5">                
+              
+                  <div class="row g-4 mt-4">
+                      <!-- Ball Bearing -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="oil/1.png" class="card-img-top" alt="Ball Bearing">
+                              <div class="hover-content">
+                                  <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Ball Bearing</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/2.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/3.png" class="card-img-top" alt="Ball Bearing">
+                            <div class="hover-content">
+                                <p>Ball Bearings are used to reduce rotational friction and support radial and axial loads.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Ball Bearing</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+              
+                      <!-- Roller Bearing -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="oil/4.png" class="card-img-top" alt="Roller Bearing">
+                              <div class="hover-content">
+                                  <p>Roller Bearings provide a low-friction solution for heavy loads in machinery.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Roller Bearing</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+              
+                      <!-- Oil Seals -->
+                      <div class="col-md-4">
+                          <div class="card">
+                              <img src="oil/5.png" class="card-img-top" alt="Oil Seals">
+                              <div class="hover-content">
+                                  <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                              </div>
+                              <div class="product-info">
+                                  <div class="product-name">Oil Seals</div>
+                                  <div class="product-action">+</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="card">
+                            <img src="oil/17.png" class="card-img-top" alt="Oil Seals">
+                            <div class="hover-content">
+                                <p>Oil seals play a crucial role in preventing leakage and contamination in machinery operations.</p>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">Oil Seals</div>
+                                <div class="product-action">+</div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+             
+            </div>
+        </div>
+      </div>
+      
+   <br>  
+
+
+
+     
+      <br>
+      <section class="newsletter-section">
+        <!-- Overlay for transparency -->
+        <div class="newsletter-overlay"></div>
+        <div class="newsletter-content">
+          <h5 class="text-white">Subscribe</h5>
+          <h2 class="text-white">Our Newsletter</h2>
+          <p>
+            Stay updated with the latest news, tips, and innovations in the bearing industry. 
+            Subscribe now to receive <br> exclusive insights, promotions, special offers, and more, 
+            directly to your inbox! <br> Don't miss out on valuable updates!
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+        </div>
+      </section>
+      <br>
+      <section class="brand-section text-center scroll-animation">
+    <p class="text-center" style="color: black; font-weight: bold; font-size:20px;">Brand We Offer</p>
+    <h1 class="text-center fw-boldder mb-5">Discover Our Wide Range Of Brands</h1>
+    
+    <div class="container">
+      <div class="brand-grid">
+        <img src="1.png" alt="SKF">
+        <img src="2.png" alt="RMP">
+        <img src="3.png" alt="NRB Industrial">
+        <img src="4.png" alt="NTN">
+        <img src="5.png" alt="INA">
+        <img src="6.png" alt="WBT">
+        <img src="7.png" alt="KCI">
+        <img src="8.png" alt="ZKL">
+        <img src="9.png" alt="NSK">
+        <img src="10.png" alt="NBS">
+      </div>
+    </div>
+  </section>
+  <br>
+      <div class="team">
+
+        <div class="container">
+          <h5 class="heading"> Engineered for Success</h5>
+          <h1 class="head2"> Bearing Solutions Provider</h1> 
+          <div class="row">
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/1.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/2.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/3.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/4.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+       </div>
+       <div class="row">
+       
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/5.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/6.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/7.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/8.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/10.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/11.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+           <div class="col-lg-3 col-md-6">
+               <div class="team-head">
+                   <div class="teamitem">
+                        <img src="about/12.png">
+                   </div>
+                   <div class="teamcontent">
+                     <p>Cement</p>
+                   </div>
+               </div>
+       
+           </div>
+       </div>
+       
+        </div>
+       </div>
+       <br>
+       <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Office Contact -->
+                <div class="col-md-4">
+                    <h5>Office Contact</h5>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i>89, Chinnasamy Road,<br>New Sidhapudur,<br>Coimbatore - 641044</li>
+                        <li><i class="fas fa-phone"></i>+91 9894050591</li>
+                        <li><i class="fas fa-phone"></i>+91 9488004568</li>
+                        <li></i>modernengineering2012@gmail.com</li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Useful Links -->
+                <div class="col-md-2">
+                    <h5>Useful Links</h5>
+                    <ul>
+                        <li><i class="icon-arrow-right"></i><a href="#" class="expand-hover">Home</a></li>
+                        <li><i class="icon-arrow-right"></i><a href="#" class="expand-hover">About Us</a></li>
+                        <li><i class="icon-arrow-right"></i><a href="#" class="expand-hover">Our Products</a></li>
+                        <li><i class="icon-arrow-right"></i><a href="#" class="expand-hover">Contact Us</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Our Products -->
+                <div class="col-md-2">
+                    <h5>Our Products</h5>
+                    <ul>
+                        <li><i class="icon-arrow-right"></i><a href="#" class="expand-hover">Ball Bearing</a></li>
+                        <li><i class="icon-arrow-right"></i><a href="#" class="expand-hover">Roller Bearing</a></li>
+                        <li><i class="icon-arrow-right"></i><a href="#" class="expand-hover">SKF Oil Seals</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Newsletter -->
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Stay updated on Modern Engineering's latest advancements, including bearings. Subscribe for valuable insights.</p>
+                    <form class="newsletter">
+                        <input type="email" placeholder="Email here">
+                        <button type="submit">submit</button>
+                    </form>
+                </div>
+            </div>
+    
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                © <a href="#">Modern Engineering</a>, All Right Reserved. Designed By <a href="https://v7lancers.com/">V7Lancers</a>
+            </div>
+        </div>
+    </footer>     
+</body>
+<script>
+     $(window).scroll(function () {
+    if ($(this).scrollTop() > 90) {
+        $('.nav-bar').addClass('nav-sticky');
+        $('.carousel, .page-header').css("margin-top", "73px");
+    } else {
+        $('.nav-bar').removeClass('nav-sticky');
+        $('.carousel, .page-header').css("margin-top", "0");
+    }
+});
+        </script>
+
+</html>
+
+
+
+
